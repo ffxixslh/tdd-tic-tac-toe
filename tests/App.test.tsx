@@ -7,8 +7,16 @@ import React from 'react'
 describe('App', () => {
   it('should render', () => {
     render(<App />)
-    const element = screen.getByText('hello world')
+    const element = screen.getByTestId('app')
     expect(element).toBeInTheDocument()
+
+    expect(element).toHaveTextContent('Count: 0')
+
+    fireEvent.click(screen.getByText('Increment'))
+    expect(element).toHaveTextContent('Count: 1')
+
+    fireEvent.click(screen.getByText('Decrement'))
+    expect(element).toHaveTextContent('Count: 0')
   })
 })
 
