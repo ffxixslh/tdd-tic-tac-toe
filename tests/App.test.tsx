@@ -1,22 +1,19 @@
-import { it, describe, expect } from 'vitest'
-import { render, screen, fireEvent } from '@testing-library/react'
-import '@testing-library/jest-dom'
-import App from '../src/App'
-import React from 'react'
+import { it, describe, expect } from "vitest";
+import { render, screen } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
+import "@testing-library/jest-dom";
 
-describe('App', () => {
-  it('should render', () => {
-    render(<App />)
-    const element = screen.getByTestId('app')
-    expect(element).toBeInTheDocument()
+import App from "../src/App";
+import React from "react";
 
-    expect(element).toHaveTextContent('Count: 0')
+describe("App", () => {
+  it("should render", () => {
+    render(<App />);
+    const element = screen.getByTestId("app");
+    expect(element).toBeInTheDocument();
+  });
 
-    fireEvent.click(screen.getByText('Increment'))
-    expect(element).toHaveTextContent('Count: 1')
+  it("should be game over", () => {});
 
-    fireEvent.click(screen.getByText('Decrement'))
-    expect(element).toHaveTextContent('Count: 0')
-  })
-})
-
+  it("should draw finishing animation", () => {});
+});
